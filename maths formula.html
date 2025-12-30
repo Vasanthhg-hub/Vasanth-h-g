@@ -94,11 +94,8 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>Engineering Mathematics Solver</h1>
-
     <div class="card">
-        <h3>1. Jacobian Solver: J = ∂(u,v) / ∂(x,y)</h3>
+        <h3>3. Jacobian Solver: J = ∂(u,v) / ∂(x,y)</h3>
         <p><small>Calculates the determinant of partial derivatives.</small></p>
         <label>Function u(x, y):</label>
         <input type="text" id="fnU" placeholder="e.g., x^2 + y^2">
@@ -113,16 +110,6 @@
         <div id="jacOutput" class="result-box">Result: --</div>
     </div>
 
-    <div class="card">
-        <h3>2. Radius of Curvature (ρ)</h3>
-        <p><small>Formula: ρ = [1 + (y')²]^(3/2) / |y''|</small></p>
-        <label>Function y(x):</label>
-        <input type="text" id="fnCurve" placeholder="e.g., x^3">
-        <label>At x =</label>
-        <input type="number" id="curveX" value="1">
-        <button onclick="calculateCurvature()">Calculate ρ</button>
-        <div id="curveOutput" class="result-box">Result: --</div>
-    </div>
 </div>
 
 <script>
@@ -192,11 +179,8 @@
 </head>
 <body>
 
-<div class="container">
-    <h1 style="text-align: center;">Math Handbook Solver - Advanced</h1>
-
     <div class="card">
-        <h2>3. Maclaurin Series Expansion (to 4th term)</h2>
+        <h2>4. Maclaurin Series Expansion (to 4th term)</h2>
         <p><small>Formula: y(0) + x/1! y'(0) + x²/2! y''(0) + ...</small></p>
         <label>Function f(x):</label>
         <input type="text" id="fnMac" placeholder="e.g., sin(x) or exp(x)">
@@ -205,7 +189,7 @@
     </div>
 
     <div class="card" style="border-left-color: #dc3545;">
-        <h2>4. Gradient, Divergence, and Curl</h2>
+        <h2>5. Gradient, Divergence, and Curl</h2>
         <label>Scalar Field φ(x,y,z) [for Gradient]:</label>
         <input type="text" id="scalPhi" placeholder="e.g., x*y*z">
         
@@ -275,106 +259,7 @@
             document.getElementById('vecOutput').innerText = "Error: Check your function variables (use x, y, z).";
         }
     }
-</script>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Engineering Math Solver - Special Functions</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #eceff1; padding: 20px; color: #263238; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .card { border: 1px solid #cfd8dc; padding: 20px; border-radius: 10px; margin-bottom: 20px; background: #fff; border-top: 5px solid #673ab7; }
-        h2 { color: #4527a0; margin-top: 0; display: flex; align-items: center; }
-        label { display: block; margin: 10px 0 5px; font-weight: bold; }
-        input { width: 100%; padding: 10px; border: 1px solid #b0bec5; border-radius: 4px; box-sizing: border-box; }
-        button { background: #673ab7; color: white; border: none; padding: 12px; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 15px; font-size: 1.1em; transition: 0.2s; }
-        button:hover { background: #5e35b1; }
-        .result-panel { margin-top: 15px; padding: 15px; background: #f3e5f5; border-radius: 4px; font-family: monospace; border-left: 4px solid #673ab7; }
-        .formula-ref { font-size: 0.85em; color: #546e7a; font-style: italic; margin-bottom: 10px; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1 style="text-align:center; color:#37474f;">Math Handbook Solver - v4.0</h1>
-
-    <div class="card">
-        <h2>5. Beta & Gamma Functions</h2>
-        <div class="formula-ref">
-            Rel: β(m,n) = [Γ(m)Γ(n)] / Γ(m+n) | Γ(1/2) = √π
-        </div>
-        <div style="display: flex; gap: 20px;">
-            <div style="flex: 1;">
-                <label>Value for m (or n):</label>
-                <input type="number" id="valM" step="0.1" value="2" placeholder="e.g. 0.5 for √π">
-                <button onclick="calcGamma()">Calculate Γ(m)</button>
-            </div>
-            <div style="flex: 1;">
-                <label>Value for n (for Beta):</label>
-                <input type="number" id="valN" step="0.1" value="3">
-                <button onclick="calcBeta()">Calculate β(m,n)</button>
-            </div>
-        </div>
-        <div id="specialOutput" class="result-panel">Result: --</div>
-    </div>
-
-    <div class="card" style="border-top-color: #009688;">
-        <h2 style="color: #00695c;">6. Multiple Integral Formulas</h2>
-        <p>This section serves as a reference for the Integral Geometry formulas in your notes:</p>
-        <div style="background: #e0f2f1; padding: 15px; border-radius: 8px;">
-            <ul style="list-style-type: square; line-height: 1.8;">
-                <li><strong>Area (Cartesian):</strong> $$A = \iint_A dx\,dy$$</li>
-                <li><strong>Area (Polar):</strong> $$A = \iint_A r\,dr\,d\theta$$</li>
-                <li><strong>Volume (3D):</strong> $$V = \iiint_V dx\,dy\,dz$$</li>
-                <li><strong>Volume (Double Int):</strong> $$V = \iint_A z\,dx\,dy$$</li>
-            </ul>
-        </div>
-        <p><small>* Note: Complex limits require numerical integration libraries like SciPy or specialized JS modules.</small></p>
-    </div>
-</div>
-
-<script>
-    // Lanczos approximation for Gamma function
-    function gamma(n) {
-        if (n === 0.5) return Math.sqrt(Math.PI);
-        var g = 7;
-        var p = [0.99999999999980993, 676.5203681218851, -1259.1392167224028,
-                 771.32342877765313, -176.61502916214059, 12.507343278686905,
-                 -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
-        if (n < 0.5) return Math.PI / (Math.sin(Math.PI * n) * gamma(1 - n));
-        n -= 1;
-        var x = p[0];
-        for (var i = 1; i < g + 2; i++) x += p[i] / (n + i);
-        var t = n + g + 0.5;
-        return Math.sqrt(2 * Math.PI) * Math.pow(t, (n + 0.5)) * Math.exp(-t) * x;
-    }
-
-    function calcGamma() {
-        const m = parseFloat(document.getElementById('valM').value);
-        try {
-            const res = gamma(m);
-            document.getElementById('specialOutput').innerHTML = `Γ(${m}) ≈ ${res.toFixed(6)}`;
-        } catch(e) {
-            document.getElementById('specialOutput').innerHTML = "Error: Input must be > 0";
-        }
-    }
-
-    function calcBeta() {
-        const m = parseFloat(document.getElementById('valM').value);
-        const n = parseFloat(document.getElementById('valN').value);
-        try {
-            // Using formula from Page 9: β(m,n) = Γ(m)Γ(n) / Γ(m+n)
-            const res = (gamma(m) * gamma(n)) / gamma(m + n);
-            document.getElementById('specialOutput').innerHTML = `β(${m}, ${n}) ≈ ${res.toFixed(6)}`;
-        } catch(e) {
-            document.getElementById('specialOutput').innerHTML = "Error calculating Beta.";
-        }
-    }
 </script>
 
 </body>
@@ -398,71 +283,6 @@
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h1 style="text-align: center; color: #333;">Polar Curves & Euler's Theorem Solver</h1>
-
-    <div class="card">
-        <h2>7. Polar Curves: Angle φ</h2>
-        <div class="formula-box">
-            Formula: cot
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Math Handbook Solver v6.0</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; padding: 20px; color: #333; }
-        .container { max-width: 900px; margin: auto; }
-        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 5px solid #009688; }
-        h2 { color: #00796b; margin-top: 0; font-size: 1.4em; }
-        .formula-display { background: #e0f2f1; padding: 10px; border-radius: 6px; font-size: 0.9em; margin-bottom: 15px; color: #004d40; }
-        label { display: block; margin: 12px 0 5px; font-weight: bold; }
-        input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        button { background: #009688; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 15px; font-size: 1.1em; }
-        button:hover { background: #00897b; }
-        .result-box { margin-top: 15px; padding: 15px; background: #f1f8e9; border-left: 5px solid #009688; font-family: 'Consolas', monospace; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1 style="text-align: center; color: #263238;">Advanced Multi-Variable Solvers</h1>
-
-    <div class="card">
-        <h2>9. Composite Functions (Total Derivative)</h2>
-        <div class="formula-display">
-            [span_0](start_span)Formula: dz/dt = (∂z/∂x)(dx/dt) + (∂z/∂y)(dy/dt)[span_0](end_span)
-        </div>
-        <label>Function z(x, y):</label>
-        <input type="text" id="fnZ" placeholder="e.g., x^2 + y^2">
-        <label>x as a function of t [x(t)]:</label>
-        <input type="text" id="fnX" placeholder="e.g., cos(t)">
-        <label>y as a function of t [y(t)]:</label>
-        <input type="text" id="fnY" placeholder="e.g., sin(t)">
-        <label>Evaluate at t =</label>
-        <input type="number" id="valT" value="0">
-        <button onclick="solveTotalDerivative()">Calculate dz/dt</button>
-        <div id="compOutput" class="result-box">Result: --</div>
-    </div>
-
-    <div class="card" style="border-top-color: #673ab7;">
-        <h2 style="color: #512da8;">10. Taylor Series (Two Variables)</h2>
-        <div class="formula-display" style="background: #ede7f6; color: #311b92;">
-            [span_1](start_span)f(x,y) ≈ f(a,b) + (x-a)fₓ(a,b) + (y-b)fᵧ(a,b) + ...[span_1](end_span)
-        </div>
-        <label>Function f(x, y):</label>
-        <input type="text" id="fn2V" placeholder="e.g., exp(x) * log(1+y)">
-        <label>Expand around point (a, b):</label>
-        <div style="display: flex; gap: 10px;">
-            <input type="number" id="ptA" value="0" placeholder="a">
-            <input type="number" id="ptB" value="0" placeholder="b">
-        </div>
-        <button onclick="solveTaylor2V()" style="background: #673ab7;">Expand to 1st Order</button>
-        <div id="taylor2VOutput" class="result-box">Result: --</div>
-    </div>
-</div>
 
 <script>
     function solveTotalDerivative() {
@@ -532,27 +352,9 @@
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h1 style="text-align: center; color: #2c3e50;">Limits & Optimization Solver</h1>
-
-    <div class="card">
-        <h2>11. Indeterminate Forms (L'Hospital's Rule)</h2>
-        <div class="formula-tag">
-            If lim f(x)/g(x) = 0/0 or ∞/∞, then Limit = lim f'(x)/g'(x)
-        </div>
-        <label>Numerator f(x):</label>
-        <input type="text" id="numF" placeholder="e.g., sin(x) - x">
-        <label>Denominator g(x):</label>
-        <input type="text" id="denG" placeholder="e.g., x^3">
-        <label>Limit as x approaches:</label>
-        <input type="number" id="limitX" value="0">
-        <button onclick="solveLimit()">Evaluate Limit</button>
-        <div id="limitOutput" class="result-box">Result: --</div>
-    </div>
-
+    
     <div class="card" style="border-top-color: #e91e63;">
-        <h2 style="color: #c2185b;">12. Maxima & Minima (Two Variables)</h2>
+        <h2 style="color: #c2185b;">6. Maxima & Minima (Two Variables)</h2>
         <div class="formula-tag" style="background: #fce4ec; color: #880e4f; border-color: #e91e63;">
             Conditions: r = fₓₓ, s = fₓᵧ, t = fᵧᵧ. <br>
             Calculate Δ = rt - s². Maxima if Δ > 0, r < 0. Minima if Δ > 0, r > 0.
@@ -631,6 +433,6 @@
         }
     }
 </script>
-
 </body>
 </html>
+
